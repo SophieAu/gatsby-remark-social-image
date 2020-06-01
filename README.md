@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/gatsby-plugin-social-image.png)](https://npmjs.org/package/gatsby-plugin-social-image)
+
 # gatsby-plugin-social-image
 
 A super-flexible but more involved Social Card Image plugin.
