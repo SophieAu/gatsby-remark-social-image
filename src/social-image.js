@@ -19,7 +19,7 @@ const postToImage = async (CACHE_DIR, browser, post, design, variables) => {
 
   const vars = {};
   variables.map(varb => {
-    vars[varb] = post[varb];
+    vars[varb] = post.frontmatter[varb];
   });
 
   const filePath = await writeCachedFile(CACHE_DIR, post.id, design(vars), 'html');

@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const { createSocialCardImage } = require('./social-image');
+const { createSocialCardImage } = require('./src/social-image');
 
 let browser = null;
 
@@ -16,7 +16,7 @@ exports.onCreateNode = async ({ node, actions, createNodeId, store }, options) =
 
   if (options.design === undefined || typeof options.design !== 'function')
     throw new Error('You need to define a design');
-  if (options.variables !== undefined && Array.isArray(options.variables))
+  if (options.variables !== undefined && !Array.isArray(options.variables))
     throw new Error('If you define variables do so in an array please');
 
   try {
