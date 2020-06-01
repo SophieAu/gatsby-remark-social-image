@@ -1,6 +1,6 @@
-[![NPM](https://nodei.co/npm/gatsby-plugin-social-image.png)](https://npmjs.org/package/gatsby-plugin-social-image)
+[![NPM](https://nodei.co/npm/gatsby-remark-social-image.png)](https://npmjs.org/package/gatsby-remark-social-image)
 
-# gatsby-plugin-social-image
+# gatsby-remark-social-image
 
 A super-flexible but more involved Social Card Image plugin.
 
@@ -9,7 +9,7 @@ Build your own completely custom social card html and css code (which is paramet
 ## How to install
 
 ```bash
-npm install gatsby-plugin-social-image
+npm install gatsby-remark-social-image
 ```
 
 ## How to use
@@ -21,7 +21,7 @@ const renderCard = ({title, author}) => `<p>${title}</p><p>${author}</p>`
 module.exports = {
   plugins: [
     {
-      resolve: 'gatsby-plugin-social-image',
+      resolve: 'gatsby-remark-social-image',
       options: { design: renderCard },
     },
   ],

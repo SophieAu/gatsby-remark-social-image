@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-plugin-social-image",
+  "name": "gatsby-remark-social-image",
   "version": "1.0.0",
-  "description": "Gatsby Plugin Social Image",
+  "description": "Gatsby Remark Social Image",
   "author": "Sophie Au <sophie@sophieau.com>",
   "main": "index.js",
   "license": "MIT",
@@ -24,6 +24,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:SophieAu/gatsby-plugin-social-image.git"
-  }
+    "url": "git+ssh://git@github.com/SophieAu/gatsby-remark-social-image.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SophieAu/gatsby-remark-social-image/issues"
+  },
+  "homepage": "https://github.com/SophieAu/gatsby-remark-social-image#readme",
+  "keywords": [
+    "gatsby",
+    "remark",
+    "gatsby-plugin",
+    "social-card-image"
+  ]
 }
