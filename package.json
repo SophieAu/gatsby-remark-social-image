@@ -6,9 +6,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "gatsby develop",
-    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
-    "prod": "gatsby build && gatsby serve",
     "format": "prettier --write '{src,data}/**/*.js'",
     "lint": "eslint 'src/**/*.js'",
     "lint:fix": "eslint 'src/**/*.js' --fix"
