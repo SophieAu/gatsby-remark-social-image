@@ -14,15 +14,10 @@ async function writeCachedFile(CACHE_DIR, key, contents, extension) {
   return absolutePath;
 }
 
-const postToImage = async (CACHE_DIR, browser, post, design, variables) => {
+const postToImage = async (CACHE_DIR, browser, post, design) => {
   const imageFileExtension = 'png';
 
-  const vars = {};
-  variables.map(varb => {
-    vars[varb] = post.frontmatter[varb];
-  });
-
-  const filePath = await writeCachedFile(CACHE_DIR, post.id, design(vars), 'html');
+  const filePath = await writeCachedFile(CACHE_DIR, post.id, design(post.frontmatter), 'html');
   const page = await browser.newPage();
 
   await page.goto(`file://${filePath}`);
@@ -33,19 +28,13 @@ const postToImage = async (CACHE_DIR, browser, post, design, variables) => {
   return writeCachedFile(CACHE_DIR, post.id, file, imageFileExtension);
 };
 
-exports.createSocialCardImage = async (
-  parentNode,
-  browser,
-  store,
-  actions,
-  { design = '', variables = [] }
-) => {
+exports.createSocialCardImage = async (parentNode, browser, store, actions, { design = '' }) => {
   const { createNode, createNodeField, createNodeId } = actions;
 
   const CACHE_DIR = resolve(`${store.getState().program.directory}/.cache/social/`);
   await fs.ensureDir(CACHE_DIR);
 
-  const ogImagePath = await postToImage(CACHE_DIR, browser, parentNode, design, variables);
+  const ogImagePath = await postToImage(CACHE_DIR, browser, parentNode, design);
   const imageFileNode = await createFileNode(ogImagePath, createNodeId);
   imageFileNode.parent = parentNode.id;
   createNode(imageFileNode, { name: `gatsby-source-filesystem` });
