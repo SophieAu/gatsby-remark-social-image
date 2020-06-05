@@ -11,13 +11,21 @@ exports.onPostBuild = async () => {
   await browser.close();
 };
 
+const ensureDesign = design => {
+  if (design === undefined || typeof design !== 'function')
+    throw new Error('You need to define a design');
+};
+
+const ensureVariables = variables => {
+  if (variables !== undefined && !Array.isArray(variables))
+    throw new Error('If you define variables do so in an array please');
+};
+
 exports.onCreateNode = async ({ node, actions, createNodeId, store }, options) => {
   if (node.internal.type !== 'MarkdownRemark') return;
 
-  if (options.design === undefined || typeof options.design !== 'function')
-    throw new Error('You need to define a design');
-  if (options.variables !== undefined && !Array.isArray(options.variables))
-    throw new Error('If you define variables do so in an array please');
+  ensureDesign(options.design);
+  ensureVariables(options.variables);
 
   try {
     await createSocialCardImage(node, browser, store, { ...actions, createNodeId }, options);
