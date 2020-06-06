@@ -11,6 +11,13 @@ exports.onPostBuild = async () => {
   await browser.close();
 };
 
+const isValidNodeType = type => {
+  if (type === 'MarkdownRemark') return true;
+  if (type === 'Mdx') return true;
+
+  return false;
+};
+
 const ensureDesign = design => {
   if (design === undefined || typeof design !== 'function')
     throw new Error('You need to define a design');
@@ -22,7 +29,7 @@ const ensureVariables = variables => {
 };
 
 exports.onCreateNode = async ({ node, actions, createNodeId, store }, options) => {
-  if (node.internal.type !== 'MarkdownRemark') return;
+  if (!isValidNodeType(node.internal.type)) return;
 
   ensureDesign(options.design);
   ensureVariables(options.variables);
