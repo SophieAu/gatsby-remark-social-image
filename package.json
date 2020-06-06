@@ -1,6 +1,6 @@
 {
   "name": "gatsby-remark-social-image",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Gatsby Remark Social Image",
   "author": "Sophie Au <sophie@sophieau.com>",
   "main": "index.js",
