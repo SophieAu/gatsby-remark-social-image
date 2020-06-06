@@ -7,9 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [1.1.0] - 2020-06-06
 ### Added
-- Mdx support
+- MDX support
 
-## [1.0.0] - 2014-05-31
+## [1.0.0] - 2020-06-01
 ### Added
 - Create social card images from a markdown file's frontmatter
 
