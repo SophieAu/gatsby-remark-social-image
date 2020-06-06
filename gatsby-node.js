@@ -23,19 +23,13 @@ const ensureDesign = design => {
     throw new Error('You need to define a design');
 };
 
-const ensureVariables = variables => {
-  if (variables !== undefined && !Array.isArray(variables))
-    throw new Error('If you define variables do so in an array please');
-};
-
-exports.onCreateNode = async ({ node, actions, createNodeId, store }, options) => {
+exports.onCreateNode = async ({ node, actions, createNodeId, store }, { design }) => {
   if (!isValidNodeType(node.internal.type)) return;
 
-  ensureDesign(options.design);
-  ensureVariables(options.variables);
+  ensureDesign(design);
 
   try {
-    await createSocialCardImage(node, browser, store, { ...actions, createNodeId }, options);
+    await createSocialCardImage(node, browser, store, { ...actions, createNodeId }, design);
   } catch (e) {
     console.warn(e);
   }

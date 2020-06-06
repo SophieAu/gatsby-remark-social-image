@@ -28,7 +28,7 @@ const postToImage = async (CACHE_DIR, browser, post, design) => {
   return writeCachedFile(CACHE_DIR, post.id, file, imageFileExtension);
 };
 
-exports.createSocialCardImage = async (parentNode, browser, store, actions, { design = '' }) => {
+exports.createSocialCardImage = async (parentNode, browser, store, actions, design) => {
   const { createNode, createNodeField, createNodeId } = actions;
 
   const CACHE_DIR = resolve(`${store.getState().program.directory}/.cache/social/`);
